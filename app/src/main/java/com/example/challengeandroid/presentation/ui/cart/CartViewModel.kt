@@ -29,17 +29,21 @@ class CartViewModel @Inject constructor(
 
     fun addToCart(productId: Int) {
         val products = _cartLiveData.value?.filter { it.id == productId }
-        addToCartUseCase.execute(products)
+        products?.let {
+            addToCartUseCase.execute(products)
+        }
+        getCartInformation()
     }
 
     fun getTotalAmount(data: List<Product>) {
         val totalPrice = data.sumOf { it.price * it.quantity}
-        _totalAmount.value ="Total Price: $totalPrice"
+        _totalAmount.value ="Monto total: $totalPrice"
     }
 
     fun removeProduct(productId: Int){
         val products = _cartLiveData.value?.filter { it.id == productId }
         removeProductCartUserCase.execute(products)
+        getCartInformation()
     }
 
 }

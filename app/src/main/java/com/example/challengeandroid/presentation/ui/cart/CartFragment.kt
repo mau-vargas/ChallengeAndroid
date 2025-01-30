@@ -61,7 +61,7 @@ class CartFragment : Fragment() {
         showTotalAmount(data)
     }
 
-    fun showTotalAmount(data: List<Product>) {
+    private fun showTotalAmount(data: List<Product>) {
         cartViewModel.getTotalAmount(data)
     }
 

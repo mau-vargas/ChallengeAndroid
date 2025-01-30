@@ -40,8 +40,7 @@ class RepositoryProductsImpl @Inject constructor(
         return arrayAux
     }
 
-
-    override fun addToCart(product: List<Product>?) {
+    override fun addToCart(product: List<Product>) {
         localData.addProduct(product)
     }
 
@@ -64,11 +63,5 @@ class RepositoryProductsImpl @Inject constructor(
 
     override fun removeToCart(product: List<Product>?) {
         localData.deleteProduct(product)
-
     }
-
-
-
-
-
 }

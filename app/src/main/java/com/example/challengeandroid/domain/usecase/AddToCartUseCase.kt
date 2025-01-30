@@ -5,7 +5,7 @@ import com.example.challengeandroid.domain.entity.Product
 import javax.inject.Inject
 
 class AddToCartUseCase @Inject constructor(private val repository: RepositoryProducts) {
-    fun execute(param: List<Product>?) {
+    fun execute(param: List<Product>) {
         repository.addToCart(param)
     }
 }

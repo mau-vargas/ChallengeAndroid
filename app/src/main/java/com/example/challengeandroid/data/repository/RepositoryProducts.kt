@@ -7,7 +7,7 @@ interface RepositoryProducts {
     suspend fun getProductsById(id:Int): Product
     suspend fun getCategories() : List<String>
     suspend fun getCategoriesById(category:String) : List<Product>
-    fun addToCart(product: List<Product>?)
+    fun addToCart(product: List<Product>)
     fun getLocalProducts(): List<Product>
     fun removeToCart(product: List<Product>?)
 

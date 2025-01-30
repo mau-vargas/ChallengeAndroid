@@ -29,8 +29,6 @@ class CartAdapter(
         val productImage: ImageView = view.findViewById(R.id.normalProductImage)
         val contentItemProduct: LinearLayout = view.findViewById(R.id.contentItemProduct)
         val quantity: TextView = view.findViewById(R.id.quantity)
-        val contentItemProductCardView: CardView =
-            view.findViewById(R.id.contentItemProductCardView)
         val normalProductAdd: ImageView = view.findViewById(R.id.normalProductAdd)
         val removeProduct: ImageView = view.findViewById(R.id.removeProduct)
     }
@@ -51,9 +49,7 @@ class CartAdapter(
         holder.productPrice.text = "$${value.price}"
         holder.quantity.text = value.quantity.toString()
         Picasso.get().load(value.image).into(holder.productImage)
-        holder.contentItemProductCardView.setOnClickListener {
-            //   itemOnclick(product.id)
-        }
+
         holder.normalProductAdd.setOnClickListener {
             addToCar(value.id)
             addProductQuantity(value.id)
@@ -63,7 +59,6 @@ class CartAdapter(
             removeProduct(value.id)
             removeProductQuantity(value.id)
         }
-
     }
 
     override fun getItemCount(): Int {
@@ -105,21 +100,4 @@ class CartAdapter(
     }
 
 
-    private fun turnOnAnimation(
-        imageView: ImageView,
-        lottie: LottieAnimationView
-    ) {
-
-        lottie.visibility = View.VISIBLE
-        imageView.visibility = View.INVISIBLE
-
-        lottie.animate()
-            .alpha(1f)
-            .setDuration(3500)
-            .withEndAction {
-                imageView.visibility = View.VISIBLE
-                lottie.visibility = View.INVISIBLE
-            }
-            .start()
-    }
 }
