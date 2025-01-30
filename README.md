@@ -90,10 +90,10 @@ Aunque se implementaron la mayoría de las funcionalidades solicitadas, hay cier
 - **Respuestas con error de los servicios** No se abordo este tema, pero es fundamental para una aplicación estar preparada para poder reintentar los llamados a los servicios, o transparentar con el cliente alguna intermitencia.
 - **Agregar Badge al carrito** No fue posible agregar la funcionalidad del Badge ya que me encontre con algunos problemas al querer implementarlo en el actionbar, se realizaron otras pruebas con otros elementos como botones y funcionó correctamente, dada la limitación de tiempo no segui insistendo con ese desarrollo.
 - **Optimización del codigo** Si bien el desarrollo es acotado a pocas funcionalidad, repetí un poco de codigo que me hubiera gustado mejorar para tener una aplicación mas entendible y mantenible ya que al repetir codigo estamos dejando varios puntos que tocaría mejorar en el caso de querer cambiar ese comportamiento.
+- **Pruebas** Debido a limitaciones de tiempo, no pude implementar pruebas unitarias en el proyecto. Sin embargo, reconozco que las pruebas son esenciales para garantizar un software de calidad. Lamentablemente, no pude alcanzar una cobertura adecuada, pero considero que este es un área clave de mejora para futuras versiones del proyecto.
 
 Estas mejoras serían importantes para la escalabilidad y la experiencia del usuario, pero debido a las limitaciones de tiempo no fueron implementadas en esta versión del proyecto.
  
-## Pruebas
 
 ## Autor
 **Mauricio Vargas Osorio**
