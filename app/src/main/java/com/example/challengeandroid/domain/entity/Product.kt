@@ -12,5 +12,4 @@ data class Product(
     val category: String,
     val rating: Rating? = null,
     var quantity: Int = 0
-
 )

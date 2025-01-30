@@ -69,8 +69,11 @@ dependencies {
     implementation ("com.google.android.material:material:1.4.0")
     implementation (libs.lottie)
 
-
-
+    testImplementation (libs.mockk)
+    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation ("junit:junit:4.12")
+    testImplementation("org.mockito:mockito-core:4.0.0") // Mockito
+    testImplementation("org.mockito:mockito-inline:4.0.0") // Mockito (si usas mocks inline)
 
 
 }

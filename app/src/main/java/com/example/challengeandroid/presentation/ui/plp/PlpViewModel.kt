@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.challengeandroid.domain.entity.Product
 import com.example.challengeandroid.domain.usecase.AddToCartUseCase
-import com.example.challengeandroid.domain.usecase.GetCartUserCase
 import com.example.challengeandroid.domain.usecase.GetCategoriesByIdUserCase
 import com.example.challengeandroid.domain.usecase.GetCategoriesUserCase
 import com.example.challengeandroid.domain.usecase.GetProductsUserCase
@@ -18,7 +17,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PlpViewModel @Inject constructor(
-    private val getCartUserCase: GetCartUserCase,
     private val getProductsUserCase: GetProductsUserCase,
     private val addToCartUseCase: AddToCartUseCase,
     private val getCategoriesUserCase: GetCategoriesUserCase,
