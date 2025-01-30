@@ -2,26 +2,38 @@
 Challenge Android
 Aplicación de compras que permite explorar diversas categorías de productos, agregarlos al carrito y completar una compra simulada.
 
-# 📱 Características de la Aplicación
+# Características de la Aplicación
+A continuación, se describen los puntos solicitados y se presenta la evidencia de que fueron debidamente abordados.
 
-## 🛍️ Listado de productos  
-- Muestra todos los productos obtenidos desde [FakeStoreAPI](https://fakestoreapi.com/).  
-- El primer producto en la lista es el **producto destacado**, determinado por el mayor puntaje (`rating.rate * rating.count`).  
-- Cada producto muestra su **título** y **precio**.  
-- Botón **"+"** para agregar productos al carrito.  
+### Listado de productos 
 
-## 📂 Categorías de productos  
-- Se obtienen desde la API y se muestran en un **Navigation Drawer**.  
-- Al seleccionar una categoría, la pantalla lista solo los productos de esa categoría.  
+✅ Muestra todos los productos obtenidos desde FakeStoreAPI.<br>
+✅ El primer producto en la lista es el producto destacado, determinado por el mayor puntaje (rating.rate * rating.count).<br>
+✅ Cada producto muestra su título y precio.<br>
+✅ Botón "+" para agregar productos al carrito.<br><br>
 
-## 🔍 Detalle del producto  
-- Al seleccionar un producto, se muestra su **descripción**, **rating**, y opción para **agregarlo al carrito**.  
+<img src="https://github.com/mau-vargas/ChallengeAndroid/blob/main/img/Screenshot_20250130_133019.png" alt="Pantalla principal" width="300"/>
 
-## 🛒 Carrito de compras  
-- Se gestiona **localmente** en el dispositivo.  
-- Se pueden **agregar y quitar productos**.  
-- Muestra el **monto total** de la compra.  
-- El botón **"Purchase"** no tiene funcionalidad real, solo simula la acción.  
+
+### Categorías de productos 
+✅ Se obtienen desde la API y se muestran en un **Navigation Drawer**.  <br>
+✅ Al seleccionar una categoría, la pantalla lista solo los productos de esa categoría.  <br> <br>
+<img src="https://github.com/mau-vargas/ChallengeAndroid/blob/main/img/Screenshot_20250130_133052.png" alt="Pantalla principal" width="300"/>
+
+###  Detalle del producto  
+✅ Al seleccionar un producto, se muestra su **descripción**, **rating**, y opción para **agregarlo al carrito**.<br><br>
+<img src="https://github.com/mau-vargas/ChallengeAndroid/blob/main/img/Screenshot_20250130_133200.png" alt="Pantalla principal" width="300"/>
+
+### Carrito de compras  
+✅ Se gestiona **localmente** en el dispositivo. <br> 
+✅ Se pueden **agregar y quitar productos**.  <br>
+✅ Muestra el **monto total** de la compra.  <br>
+✅ El botón **"Purchase"** no tiene funcionalidad real, solo simula la acción.  <br> <br>
+
+<img src="https://github.com/mau-vargas/ChallengeAndroid/blob/main/img/Screenshot_20250130_133130.png" alt="Pantalla principal" width="300"/>
+
+
+
 
 
 
@@ -62,6 +74,16 @@ Para la persistencia de datos en el carrito de compras, se decidió utilizar Sha
 Esta elección se debe a que los datos del carrito son dinámicos y se modifican constantemente. Además, como el carrito se sincroniza entre múltiples plataformas (Android, iOS y Web), la información almacenada localmente no requiere una protección robusta ni un mantenimiento avanzado como el que ofrece SQLite con Room. Si el usuario desinstala la aplicación o borra los datos, estos deben recuperarse desde el backend.
 En una implementación real, se consideraría el uso de EncryptedSharedPreferences para mejorar la seguridad de los datos almacenados.
 La solución implementada guarda el carrito en formato JSON, lo que facilita su manipulación y serialización. Sin embargo, este enfoque tiene ciertas limitaciones, especialmente cuando se requiere reconstruir objetos complejos con dependencias entre clases. Para abordar este desafío, se implementó un mapper, permitiendo almacenar únicamente la información esencial y reconstruir los objetos de manera eficiente para la interacción del usuario. 
+
+## Mejoras pendientes
+
+Aunque se implementaron la mayoría de las funcionalidades solicitadas, hay ciertos aspectos que podrían mejorarse o añadirse para optimizar la aplicación. Estas son algunas de las áreas que planeaba abordar, pero por falta de tiempo no pude completarlas:
+
+- **Respuestas con error de los servicios** No se abordo este tema, pero es fundamental para una aplicación estar preparada para poder reintentar los llamados a los servicios, o transparentar con el cliente alguna intermitencia.
+- **Agregar Badge al carrito** No fue posible agregar la funcionalidad del Badge ya que me encontre con algunos problemas al querer implementarlo en el actionbar, se realizaron otras pruebas con otros elementos como botones y funcionó correctamente, dada la limitación de tiempo no segui insistendo con ese desarrollo.
+- **Optimización del codigo** Si bien el desarrollo es acotado a pocas funcionalidad, repetí un poco de codigo que me hubiera gustado mejorar para tener una aplicación mas entendible y mantenible ya que al repetir codigo estamos dejando varios puntos que tocaría mejorar en el caso de querer cambiar ese comportamiento.
+
+Estas mejoras serían importantes para la escalabilidad y la experiencia del usuario, pero debido a las limitaciones de tiempo no fueron implementadas en esta versión del proyecto.
  
 ## Pruebas
 
