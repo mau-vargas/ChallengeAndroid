@@ -32,6 +32,14 @@ A continuación, se describen los puntos solicitados y se presenta la evidencia 
 
 <img src="https://github.com/mau-vargas/ChallengeAndroid/blob/main/img/Screenshot_20250130_133130.png" alt="Pantalla principal" width="300"/>
 
+## Descripción de los servicios integrados en la App
+
+| **Método HTTP** | **Endpoint**                                      | **Descripción**                                                    | **Parámetros**             | **Respuesta Esperada**                           |
+|-----------------|---------------------------------------------------|--------------------------------------------------------------------|----------------------------|--------------------------------------------------|
+| `GET`           | `https://fakestoreapi.com/products`               | Obtiene la lista de todos los productos disponibles.               | Ninguno                    | `Response<List<ProductResponse>>`                |
+| `GET`           | `https://fakestoreapi.com/products/{id}`          | Obtiene un producto específico por su ID.                          | `id` (parámetro de ruta)   | `Response<ProductResponse>`                      |
+| `GET`           | `https://fakestoreapi.com/products/categories`    | Obtiene todas las categorías de productos disponibles.             | Ninguno                    | `Response<List<String>>`                         |
+| `GET`           | `https://fakestoreapi.com/products/category/{category}` | Obtiene los productos de una categoría específica.                | `category` (parámetro de ruta) | `Response<List<ProductResponse>>`              |
 
 
 
