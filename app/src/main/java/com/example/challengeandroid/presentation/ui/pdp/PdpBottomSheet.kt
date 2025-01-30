@@ -30,16 +30,19 @@ class PdpBottomSheet : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Obtener el argumento
         val id = arguments?.getInt("idValue")
-
 
         viewModel.productsLiveData.observe(viewLifecycleOwner, Observer { data ->
             showProductDetail(data)
         })
         id?.let {
             viewModel.getProductById(it)
+        }
 
+        binding.normalProductAdd.setOnClickListener {
+            id?.let {
+                viewModel.addToCart(it)
+            }
         }
     }
 
@@ -49,8 +52,5 @@ class PdpBottomSheet : BottomSheetDialogFragment() {
         binding.textView4.text = data.description
         binding.ratingBar.rating = data.rating?.rate?.toFloat() ?: 0f
         Picasso.get().load(data.image).into(binding.imageView3)
-
     }
-
-
 }

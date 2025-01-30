@@ -8,9 +8,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.OptIn
-import androidx.cardview.widget.CardView
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.lottie.LottieAnimationView
 import com.example.challengeandroid.R
 import com.example.challengeandroid.domain.entity.Product
 import com.google.android.material.badge.ExperimentalBadgeUtils
@@ -98,6 +98,8 @@ class CartAdapter(
             notifyItemRemoved(index)
         }
     }
+
+
 
 
 }

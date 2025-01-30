@@ -2,7 +2,7 @@ package com.example.challengeandroid.presentation.ui.cart
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.challengeandroid.core.BaseViewModel
+import androidx.lifecycle.ViewModel
 import com.example.challengeandroid.domain.entity.Product
 import com.example.challengeandroid.domain.usecase.AddToCartUseCase
 import com.example.challengeandroid.domain.usecase.GetCartUserCase
@@ -15,13 +15,14 @@ class CartViewModel @Inject constructor(
     private val getCartUserCase: GetCartUserCase,
     private val removeProductCartUserCase: RemoveProductCartUserCase,
     private val addToCartUseCase: AddToCartUseCase
-) : BaseViewModel() {
-
-    private val _cartLiveData = MutableLiveData<List<Product>>()
-    val cartLiveData: LiveData<List<Product>> get() = _cartLiveData
+) : ViewModel() {
 
     private val _totalAmount = MutableLiveData<String>()
     val totalAmount: LiveData<String> get() = _totalAmount
+
+    val _cartLiveData = MutableLiveData<List<Product>>()
+    val cartLiveData: LiveData<List<Product>> get() = _cartLiveData
+
 
     fun getCartInformation() {
         _cartLiveData.value = getCartUserCase.execute()
@@ -45,5 +46,4 @@ class CartViewModel @Inject constructor(
         removeProductCartUserCase.execute(products)
         getCartInformation()
     }
-
 }

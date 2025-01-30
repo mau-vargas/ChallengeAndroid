@@ -2,10 +2,11 @@ package com.example.challengeandroid.presentation.ui.plp
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.challengeandroid.core.BaseViewModel
 import com.example.challengeandroid.domain.entity.Product
 import com.example.challengeandroid.domain.usecase.AddToCartUseCase
+import com.example.challengeandroid.domain.usecase.GetCartUserCase
 import com.example.challengeandroid.domain.usecase.GetCategoriesByIdUserCase
 import com.example.challengeandroid.domain.usecase.GetCategoriesUserCase
 import com.example.challengeandroid.domain.usecase.GetProductsUserCase
@@ -17,11 +18,12 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PlpViewModel @Inject constructor(
+    private val getCartUserCase: GetCartUserCase,
     private val getProductsUserCase: GetProductsUserCase,
     private val addToCartUseCase: AddToCartUseCase,
     private val getCategoriesUserCase: GetCategoriesUserCase,
     private val getCategoriesByIdUserCase: GetCategoriesByIdUserCase
-) : BaseViewModel() {
+) : ViewModel()  {
 
     private val _productsLiveData = MutableLiveData<UIState<List<Product>>>()
     val productsLiveData: LiveData<UIState<List<Product>>> get() = _productsLiveData
@@ -83,8 +85,6 @@ class PlpViewModel @Inject constructor(
         } else {
             loadProducts()
         }
-
-
     }
 
     private fun setProducts(products: List<Product>) {
@@ -100,6 +100,4 @@ class PlpViewModel @Inject constructor(
 
         _productsLiveData.value = UIState.Success(updatedList)
     }
-
-
 }

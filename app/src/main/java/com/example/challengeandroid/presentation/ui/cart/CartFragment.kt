@@ -24,7 +24,6 @@ class CartFragment : Fragment() {
 
     private val cartViewModel: CartViewModel by viewModels()
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
